@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quotes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="../../dist/output.css" rel="stylesheet">
+</head>
+<body class="dark:bg-slate-900">
+  <nav class="bg-white/50 backdrop-blur px-4 sm:px-10 py-2 dark:bg-slate-900/60 fixed w-full z-10 top-0 left-0 border-b border-gray-200/30 dark:border-slate-800/40">
+    <div class="container flex flex-wrap items-center max-md:justify-between mx-auto">
+      <a href="#" class="flex items-center">
+        <span class="text-xl sm:ml-0 md:-ml-6 lg:ml-0 font-semibold whitespace-nowrap dark:text-white">rplone-webkelas</span>
+      </a>
+      <div class="flex md:order-2">
+        <button data-tooltip-target="info" id="theme-toggle" type="button" class="mr-2 text-gray-500 dark:text-gray-400 md:hover:bg-gray-100 md:dark:hover:bg-gray-700 focus:outline-none md:focus:ring-4 md:focus:ring-gray-200 md:dark:focus:ring-gray-700 rounded-lg text-sm p-2">
+          <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+        <label for="" class="lg:mr-5 my-auto text-sm text-gray-900 dark:text-gray-300 hidden md:flex">Theme</label>
+        <div id="info" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-xs font-medium transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 tooltip dark:border-none dark:text-slate-200 dark:bg-gray-700">
+          Theme
+          <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <button id="nav-button" data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100/40 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700/50 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+      <div class="items-center mx-auto justify-between hidden w-full md:flex md:w-auto lg:pr-9" id="navbar-cta">
+        <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent md:dark:bg-transparent dark:bg-slate-900 dark:border-slate-800">
+          <li>
+            <a href="/pages/home.html" class="block py-2 pl-3 pr-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-white dark:hover:bg-gray-800 dark:hover:text-slate-200 md:dark:hover:bg-transparent dark:border-gray-700 rounded md:bg-transparent md:p-0" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="/pages/activities/index.html" class="block py-2 pl-3 pr-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-white dark:hover:bg-gray-800 dark:hover:text-slate-200 md:dark:hover:bg-transparent dark:border-gray-700 rounded md:bg-transparent md:p-0">Activities</a>
+          </li>
+          <li>
+            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-white md:font-semibold md:text-blue-700 dark:text-white md:bg-transparent bg-blue-700 rounded md:border-0 md:p-0 md:w-auto">Members <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+            <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-slate-800 dark:divide-gray-600">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                <li>
+                  <a href="/pages/members/teacher.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-900/50 dark:hover:text-slate-200">Teachers</a>
+                </li>
+                <li>
+                  <a href="/pages/members/student.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-900/50 dark:hover:text-slate-200">Students</a>
+                </li>
+                <li>
+                  <a href="/pages/members/quotes.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-slate-900/50 dark:hover:text-slate-200">Quotes</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="/pages/store.html" class="block py-2 pl-3 pr-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-white dark:hover:bg-gray-800 dark:hover:text-slate-200 md:dark:hover:bg-transparent dark:border-gray-700 rounded md:bg-transparent md:p-0">Store</a>
+          </li>
+          <li>
+            <a href="/pages/about.html" class="block py-2 pl-3 pr-4 text-gray-700 dark:text-gray-400 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-white dark:hover:bg-gray-800 dark:hover:text-slate-200 md:dark:hover:bg-transparent dark:border-gray-700 rounded md:bg-transparent md:p-0">About RPL's</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="content isolate bg-white py-24 sm:py-32 dark:bg-slate-900">
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+      <svg class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 dark:stroke-slate-800 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]" aria-hidden="true">
+        <defs>
+          <pattern id="e813992c-7d03-4cc4-a2bd-151760b470a0" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+            <path d="M100 200V.5M.5 .5H200" fill="none" />
+          </pattern>
+        </defs>
+        <svg x="50%" y="-1" class="overflow-visible fill-white dark:fill-slate-800 md:dark:fill-trans">
+          <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z" stroke-width="0" />
+        </svg>
+        <rect width="100%" height="100%" stroke-width="0" fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)" />
+      </svg>
+    </div>
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="max-w-2xl justify-center mx-auto items-center pb-14">
+        <p class="text-xl text-center font-bold text-indigo-500">Quotes</p>
+        <h2 class="text-3xl font-bold tracking-tight text-center text-gray-900 dark:text-slate-200 sm:text-4xl">Quote from us to us</h2>
+      </div>
+      <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <ul class="space-y-8">
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, odio.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, odio.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, odio.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, odio.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, odio.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+        </ul>
+        <ul class="space-y-8">
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, maxime.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet conse
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet conse
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, maxime.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet conse
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, maxime.
+              </blockquote>
+            </div>
+          </li>
+        </ul>
+        <ul class="space-y-8">
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, maxime.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, quis.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, quis.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, quis.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, quis.
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+          <li>
+            <div class="rounded-xl border border-slate-100 dark:border-0 dark:border-t dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6">
+              <a href="#" class="flex space-x-4 pb-5 items-center">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="identity items-start">
+                  <h6 class="text-base tracking-tight leading-6 font-semibold text-black dark:text-slate-300">Your name</h6>
+                  <p class="text-sm font-normal text-slate-600 dark:text-slate-400">Social media, job</p>
+                </div>
+              </a>
+              <blockquote class="text-slate-700 dark:text-slate-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum!
+              </blockquote>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="max-w-7xl md:mx-auto mx-4 md:px-14 lg:px-8 border-t dark:border-slate-800">
+    <div class="flex items-center justify-between gap-x-3">
+      <div class="sm:flex text-sm text-gray-600 dark:text-slate-400 sm:divide-x-2 sm:divide-gray-300 sm:dark:divide-slate-600 sm:space-x-3">
+        <p class="">Copyright &copy; 2023 RPL 1 Developer TEAM</p>
+        <a href="https://www.smkn3-banjar.sch.id/" class="sm:pl-3 hover:text-black dark:hover:text-slate-300">SMKN 3 Banjar</a>
+      </div>
+      <div class="flex items-center space-x-5 text-slate-500 justify-center py-9">
+        <a href="#" class="hover:text-slate-800 dark:hover:text-slate-400">
+          <svg class="w-6 h-6" class="" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+        </a>
+        <a href="#" class="hover:text-slate-800 dark:hover:text-slate-400">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script src="/../../node_modules/flowbite/dist/flowbite.min.js"></script>
+  <script src="/dist/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.siswa-list::-webkit-scrollbar {
+  width: 5px;
+}
+.siswa-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);     
+  background: #c9c9c9;
+  border-radius: 10px;
+}
+.siswa-list::-webkit-scrollbar-thumb {
+  background: rgb(88, 102, 224);
+  border-radius: 10px;
+}
